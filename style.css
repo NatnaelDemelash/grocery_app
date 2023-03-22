@@ -1,73 +1,116 @@
-@import url('https://fonts.googleapis.com/css2?family=Asap:wght@100;300;400&display=swap');
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@100;300;400&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-body{
-    background-color: #2E4053;
-    color: #fff;
-    font-family: 'Asap', sans-serif;
+body {
+  background-color: #2e4053;
+  color: #fff;
+  font-family: "Asap", sans-serif;
 }
 
-hr{
-    max-width: 700px;
+hr {
+  max-width: 700px;
 }
 
-.container{
-    max-width: 1100px;
-    margin: 0 auto;
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
-.head-text{
-    font-size: 3rem;
-    margin-top: 3rem;
-    font-weight: 300;
+.head-text {
+  font-size: 3rem;
+  margin-top: 3rem;
+  font-weight: 300;
 }
 
-
-input{
-    padding: 1.1rem 2rem;
-    min-width: 600px;
-    display: block;
-    margin: 2rem 0;
-    border: 2px solid White;
-    background: transparent;
-    outline: none;
-    border-radius: 2rem;
-    font-size: 18px;
-    color: #fff;
+input {
+  padding: 1.1rem 2rem;
+  min-width: 600px;
+  display: block;
+  margin: 2rem 0;
+  border: 2px solid White;
+  background: transparent;
+  outline: none;
+  border-radius: 2rem;
+  font-size: 18px;
+  color: #fff;
 }
 
-input:focus{
-    color: #fff;
+input:focus {
+  color: #fff;
 }
 
-input::placeholder{
-    color: #cfcfcfb0;
-    font-family: 'Asap', sans-serif;
+input::placeholder {
+  color: #cfcfcfb0;
+  font-family: "Asap", sans-serif;
 }
 
-button{
-    padding: 1rem 2rem;
-    background: #2ECC71;
-    color: #fff;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    font-family: 'Asap', sans-serif;
-    border-radius: 2rem;
-    font-weight: 700;
-    line-height: 1;
-    cursor: pointer;
+button {
+  padding: 1rem 2rem;
+  background: #2ecc71;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  font-family: "Asap", sans-serif;
+  border-radius: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
 }
 
-button:hover{
-    background: #E67E22;
+.btn-clear {
+  width: 100%;
+  font-size: 16px;
+  background-color: transparent;
+  color: #333;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
-.filiter{
-    margin: 2rem 0;
-    color: #cfcfcfb0;
+.text-red {
+  color: red;
+}
+
+.form-btn:hover {
+  background: #e67e22;
+}
+
+.filter input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #cfcfcfb0;
+  padding: 1rem 0;
+}
+
+.items {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.items li {
+  padding: 10px 15px;
+  margin: 0 5px 20px;
+  background: #fff;
+  color: #e67e22;
+  font-size: 1.7rem;
+  border-radius: 8px;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+}
+
+@media (max-width: 500px) {
+  .items li {
+    width: 100%;
+  }
 }
