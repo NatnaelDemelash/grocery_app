@@ -5,8 +5,16 @@ const itemList = document.getElementById("item-list"); // ul
 const clearBtn = document.getElementById("clear"); // clear button
 const itemFilter = document.getElementById("filter");
 
+function displayItems() {
+  const itemFromStorage = getItemFromStroage();
+
+  itemFromStorage.forEach((item) => addItemToDom(item));
+
+  checkUI();
+}
+
 // Add grocery items to the list
-function addItem(e) {
+function onAddItemSubmit(e) {
   e.preventDefault();
 
   const newItem = itemInput.value;
@@ -16,18 +24,26 @@ function addItem(e) {
     return;
   }
 
+  // Add Item to the DOM
+  addItemToDom(newItem);
+
+  // Add Item to Local Storage
+  addItemToStorage(newItem);
+
+  checkUI();
+
+  itemInput.value = "";
+}
+
+function addItemToDom(item) {
   const li = document.createElement("li");
-  li.appendChild(document.createTextNode(newItem));
+  li.appendChild(document.createTextNode(item));
 
   const button = createButton("remove-item btn-link text-red");
   li.appendChild(button);
 
   // Add li to the DOM list
   itemList.appendChild(li);
-
-  checkUI();
-
-  itemInput.value = "";
 }
 
 // Create Button
@@ -45,6 +61,25 @@ const createIcon = (classes) => {
   icon.className = classes;
   return icon;
 };
+
+function addItemToStorage(item) {
+  let itemFromStorage = getItemFromStroage();
+
+  itemFromStorage.push(item);
+  localStorage.setItem("items", JSON.stringify(itemFromStorage));
+}
+
+function getItemFromStroage() {
+  let itemFromStorage;
+
+  if (localStorage.getItem("items") === null) {
+    itemFromStorage = [];
+  } else {
+    itemFromStorage = JSON.parse(localStorage.getItem("items"));
+  }
+
+  return itemFromStorage;
+}
 
 // Remove Items from the list
 function removeItem(e) {
@@ -90,9 +125,10 @@ const checkUI = () => {
 };
 
 // Event Listners
-itemForm.addEventListener("submit", addItem);
+itemForm.addEventListener("submit", onAddItemSubmit);
 itemList.addEventListener("click", removeItem);
 clearBtn.addEventListener("click", clearItems);
 itemFilter.addEventListener("input", filterItem);
+document.addEventListener("DOMContentLoaded", displayItems);
 
 checkUI();
